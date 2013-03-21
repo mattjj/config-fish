@@ -79,4 +79,3 @@ alias t=todo
 alias d=todone
 
 # TODO I'd love to bind \cz but fish doesn't disable VDSUSP (edit reader.cpp?)
-# TODO with no net connection in git repos with remotes, prompt delay
