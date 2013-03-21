@@ -10,7 +10,7 @@ function fish_prompt
 
    printf ' in '
    set_color $fish_color_cwd
-   printf '%s' (prompt_pwd)
+   printf '%s' $PWD/
    set_color normal
 
    __fish_git_prompt " on %s"
