@@ -34,19 +34,12 @@ alias pl='ipython --pylab'
 alias top=htop
 alias cloc='cloc --exclude-dir=.git'
 alias scheme='rlwrap -r -c -b" " -f "$HOME"/.scheme_completion.txt scheme'
+alias pcat='pygmentize -f terminal256 -O style=native -g'
+alias less='less -r'
 alias gb='git branch'
 alias gco='git checkout'
 alias gca='git commit --all'
-alias pcat='pygmentize -f terminal256 -O style=native -g'
-alias less='less -r'
 
-# see https://github.com/fish-shell/fish-shell/issues/393
-function make_completion --argument alias command
-    complete -c $alias -xa "(
-    set -l cmd (commandline -pc | sed -e 's/^ *\S\+ *//' );
-    complete -C\"$command \$cmd\";
-    )"
-end
 make_completion gb 'git branch'
 make_completion gco 'git checkout'
 make_completion gca 'git commit --all'
