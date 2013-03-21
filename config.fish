@@ -77,8 +77,8 @@ end
 
 set -x TODOFILE ~/Dropbox/todo/.todo
 set -x TODOHISTORY ~/Dropbox/todo/.todo-history
-set -x TODONEFILE ~/Dropbox/todo/.todone
 alias t=todo
 alias d=todone
+alias tc=todos_completed
 
 # TODO I'd love to bind \cz but fish doesn't disable VDSUSP (edit reader.cpp?)
