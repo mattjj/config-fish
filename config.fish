@@ -1,0 +1,89 @@
+set fish_greeting ""
+
+###########
+#  paths  #
+###########
+
+set PATH "$HOME"/bin/{,todo/} /opt/local/{libexec/gnubin,bin,sbin}/ \
+    /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin/ \
+    $PATH
+
+set CDPATH . "$HOME" $CDPATH
+
+if test (uname) = Darwin
+    set PYTHONPATH "~/Library/Python:$PYTHONPATH"
+end
+
+##################
+#  key bindings  #
+##################
+
+function fish_user_key_bindings
+    bind \e\[1\;9A 'history-token-search-backward'
+    bind \e\[1\;9C 'forward-word'
+    bind \e\[1\;9D 'backward-word'
+end
+
+#############
+#  aliases  #
+#############
+
+alias v=vim
+alias vv='vim -u NONE'
+alias pl='ipython --pylab'
+alias top=htop
+alias cloc='cloc --exclude-dir=.git'
+alias scheme='rlwrap -r -c -b" " -f "$HOME"/.scheme_completion.txt scheme'
+alias gb='git branch'
+alias gco='git checkout'
+alias gca='git commit --all'
+alias pcat='pygmentize -f terminal256 -O style=native -g'
+alias less='less -r'
+
+# see https://github.com/fish-shell/fish-shell/issues/393
+function make_completion --argument alias command
+    complete -c $alias -xa "(
+    set -l cmd (commandline -pc | sed -e 's/^ *\S\+ *//' );
+    complete -C\"$command \$cmd\";
+    )"
+end
+make_completion gb 'git branch'
+make_completion gco 'git checkout'
+make_completion gca 'git commit --all'
+make_completion pcat 'cat'
+
+##########
+#  misc  #
+##########
+
+set __fish_git_prompt_showdirtystate 'yes'
+set __fish_git_prompt_color_branch magenta
+set __fish_git_prompt_char_dirtystate '!'
+set __fish_git_prompt_char_stagedstate '→'
+set __fish_git_prompt_char_stashstate '↩'
+set __fish_git_prompt_char_upstream_ahead '↑'
+set __fish_git_prompt_char_upstream_behind '↓'
+
+# TODO get tab completion working for this or z
+function j
+    cd (command autojump $argv)
+end
+
+if not set -q LS_COLORS
+    if type -f dircolors >/dev/null
+        eval (dircolors -c ~/.dir_colors)
+    end
+end
+
+################
+#  todo setup  #
+################
+
+set -x TODOFILE ~/Dropbox/todo/.todo
+set -x TODOHISTORY ~/Dropbox/todo/.todo-history
+set -x TODONEFILE ~/Dropbox/todo/.todone
+alias t=todo
+alias d=todone
+
+# TODO I'd love to bind \cz but fish doesn't disable VDSUSP (edit reader.cpp?)
+# TODO with no net connection in git repos with remotes, prompt delay
