@@ -10,7 +10,7 @@ function fish_prompt
 
    printf ' in '
    set_color $fish_color_cwd
-   printf '%s' $PWD/
+   printf '%s' (echo $PWD/ | sed -e "s|^$HOME|~|")
    set_color normal
 
    __fish_git_prompt " on %s"
