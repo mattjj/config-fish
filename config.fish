@@ -28,13 +28,14 @@ end
 #  aliases  #
 #############
 
-alias v=vim
+alias v='vim'
 alias vv='vim -u NONE'
 alias pl='ipython --pylab'
-alias top=htop
+alias top='htop'
 alias cloc='cloc --exclude-dir=.git'
 alias scheme='rlwrap -r -c -b" " -f "$HOME"/.scheme_completion.txt scheme'
 alias pcat='pygmentize -f terminal256 -O style=native -g'
+alias gfm='flavor'
 alias less='less -r'
 alias gb='git branch'
 alias gco='git checkout'
