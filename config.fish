@@ -71,6 +71,8 @@ if not set -q LS_COLORS
     end
 end
 
+set -x GREP_COLOR '37;45'
+
 ################
 #  todo setup  #
 ################
