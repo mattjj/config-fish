@@ -23,6 +23,7 @@ function fish_user_key_bindings
     bind \e\[1\;9A 'history-token-search-backward'
     bind \e\[1\;9C 'forward-word'
     bind \e\[1\;9D 'backward-word'
+    # bind \cz 'fg ^/dev/null' # TODO this doesn't quite work; try doing it twice in a row
 end
 
 #############
@@ -83,5 +84,5 @@ set -x TODOHISTORY ~/Dropbox/todo/.todo-history
 alias t=todo
 alias d=todone
 alias tc=todos_completed
+alias te="vim -p $TODOFILE $TODOHISTORY"
 
-# TODO I'd love to bind \cz but fish doesn't disable VDSUSP (edit reader.cpp?)
