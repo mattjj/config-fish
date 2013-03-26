@@ -4,15 +4,14 @@ set fish_greeting ""
 #  paths  #
 ###########
 
-set -x PATH "$HOME"/bin/{,todo/} $PATH
+set PATH "$HOME"/bin/{,todo/} $PATH
 
-set -x CDPATH . "$HOME" $CDPATH
+set CDPATH . "$HOME" $CDPATH
 
 if test (uname) = Darwin
-    set -x PATH /opt/local/{libexec/gnubin,bin,sbin}/ \
-        /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin/ \
-        $PATH
-    set PYTHONPATH "~/Library/Python:$PYTHONPATH"
+    set PATH $PATH /opt/local/{libexec/gnubin,bin,sbin}/ \
+        /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin/
+    set -x PYTHONPATH ~/Library/Python
 end
 
 ##################
