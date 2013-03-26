@@ -4,14 +4,16 @@ set fish_greeting ""
 #  paths  #
 ###########
 
-set PATH "$HOME"/bin/{,todo/} $PATH
+if begin; status --is-login; and test -z $TMUX; end
+    set -x PATH "$HOME"/bin/{,todo/} $PATH
 
-set CDPATH . "$HOME" $CDPATH
+    set -x CDPATH . "$HOME" $CDPATH
 
-if test (uname) = Darwin
-    set PATH $PATH /opt/local/{libexec/gnubin,bin,sbin}/ \
-        /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin/
-    set -x PYTHONPATH ~/Library/Python
+    if test (uname) = Darwin
+        set -x PATH $PATH /opt/local/{libexec/gnubin,bin,sbin}/ \
+            /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin/
+        set -x PYTHONPATH ~/Library/Python
+    end
 end
 
 ##################
