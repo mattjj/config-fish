@@ -10,8 +10,9 @@ if begin; status --is-login; and test -z $TMUX; end
     set -x CDPATH . "$HOME" $CDPATH
 
     if test (uname) = Darwin
-        set -x PATH $PATH /opt/local/{libexec/gnubin,bin,sbin}/ \
-            /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin/
+        set -x PATH /opt/local/{libexec/gnubin,bin,sbin}/ \
+            /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin/ \
+            $PATH
         set -x PYTHONPATH ~/Library/Python
     end
 end
@@ -85,5 +86,5 @@ set -x TODOHISTORY ~/Dropbox/todo/.todo-history
 alias t=todo
 alias d=todone
 alias tc=todos_completed
-alias te="vim -p $TODOFILE $TODOHISTORY"
+alias te="vim -p $TODOFILE $TODOHISTORY ~/.todo-stashed"
 
