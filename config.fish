@@ -5,6 +5,9 @@ set fish_greeting ""
 ###########
 
 if begin; status --is-login; and test -z $TMUX; end
+    set -x EDITOR vim
+    set -x VISUAL vim
+
     set -x PATH "$HOME"/bin/{,todo/} $PATH
 
     set -x CDPATH . "$HOME" $CDPATH
