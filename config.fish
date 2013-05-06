@@ -68,7 +68,6 @@ set __fish_git_prompt_char_stashstate '↩'
 set __fish_git_prompt_char_upstream_ahead '↑'
 set __fish_git_prompt_char_upstream_behind '↓'
 
-# TODO get tab completion working for this or z
 function j
     cd (command autojump $argv)
 end
