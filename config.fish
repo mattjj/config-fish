@@ -90,4 +90,3 @@ alias t=todo
 alias d=todone
 alias tc=todos_completed
 alias te="vim -p $TODOFILE $TODOHISTORY ~/.todo-stashed"
-
