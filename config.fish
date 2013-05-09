@@ -74,7 +74,8 @@ end
 
 if not set -q LS_COLORS
     if type -f dircolors >/dev/null
-        eval (dircolors -c ~/.dir_colors)
+        # eval (dircolors -c ~/.dir_colors.light)
+        eval (dircolors -c ~/.dir_colors.dark)
     end
 end
 
