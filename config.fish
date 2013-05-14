@@ -12,6 +12,10 @@ if begin; status --is-login; and test -z $TMUX; end
 
     set -x CDPATH . "$HOME" $CDPATH
 
+    if test -e ~/builds/julia;
+        set -x PATH ~/builds/julia $PATH
+    end
+
     if test (uname) = Darwin
         set -x PATH /opt/local/{libexec/gnubin,bin,sbin}/ \
             /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin/ \
