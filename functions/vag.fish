@@ -1,3 +1,3 @@
 function vag -d "Open files containing string"
-    vim -p (ag -l $argv)
+    vim -p +/$argv[(count $argv)] (ag -l $argv)
 end
