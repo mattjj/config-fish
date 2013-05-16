@@ -51,7 +51,6 @@ alias less='less -r'
 alias gb='git branch'
 alias gco='git checkout'
 alias gca='git commit --all'
-alias fucking='sudo'
 
 make_completion gb 'git branch'
 make_completion gco 'git checkout'
