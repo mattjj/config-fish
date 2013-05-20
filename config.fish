@@ -51,11 +51,13 @@ alias less='less -r'
 alias gb='git branch'
 alias gco='git checkout'
 alias gca='git commit --all'
+alias ta='tmux a -t'
 
 make_completion gb 'git branch'
 make_completion gco 'git checkout'
 make_completion gca 'git commit --all'
 make_completion pcat 'cat'
+make_completion ta 'tmux a -t'
 
 ##########
 #  misc  #
