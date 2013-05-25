@@ -21,7 +21,8 @@ if begin; status --is-login; and test -z $TMUX; end
             /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin/ \
             $PATH
         set -x PYTHONPATH ~/Library/Python
-        set -x MANPATH /opt/local/share/man $MANPATH
+        set -x MANPATH /opt/local/share/man /opt/local/man/ \
+            /usr/local/share/man /usr/share/man /opt/X11/share/man $MANPATH
     end
 end
 
