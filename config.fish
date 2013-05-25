@@ -43,7 +43,6 @@ end
 alias v='vim'
 alias vv='vim -u NONE'
 alias pl='ipython --pylab'
-alias top='htop'
 alias cloc='cloc --exclude-dir=.git'
 alias scheme='rlwrap -r -c -b" " -f "$HOME"/.scheme_completion.txt scheme'
 alias pcat='pygmentize -f terminal256 -O style=native -g'
