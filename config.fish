@@ -23,6 +23,10 @@ if begin; status --is-login; and test -z $TMUX; end
         set -x PYTHONPATH ~/Library/Python
         set -x MANPATH /opt/local/share/man /opt/local/man/ \
             /usr/local/share/man /usr/share/man /opt/X11/share/man $MANPATH
+
+        set -x GOROOT /opt/local/go
+        set -x GOPATH ~/bin/gocode/bin
+        set -x PATH $PATH $GOPATH
     end
 end
 
