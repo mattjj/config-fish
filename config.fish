@@ -38,6 +38,8 @@ function fish_user_key_bindings
     bind \e\[1\;9A 'history-token-search-backward'
     bind \e\[1\;9C 'forward-word'
     bind \e\[1\;9D 'backward-word'
+    bind \cf 'forward-word'
+    bind \cb 'backward-word'
 end
 
 #############
@@ -84,8 +86,8 @@ end
 
 if not set -q LS_COLORS
     if type -f dircolors >/dev/null
-        # eval (dircolors -c ~/.dir_colors.light)
-        eval (dircolors -c ~/.dir_colors.dark)
+        eval (dircolors -c ~/.dir_colors.light)
+        # eval (dircolors -c ~/.dir_colors.dark)
     end
 end
 
