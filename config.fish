@@ -54,7 +54,7 @@ alias cloc='cloc --exclude-dir=.git'
 alias scheme='rlwrap -r -c -b" " -f "$HOME"/.scheme_completion.txt scheme'
 alias pcat='pygmentize -f terminal256 -O style=native -g'
 alias gfm='github-flavored-markdown.rb'
-alias less='less -r'
+alias less='less -R'
 alias gb='git branch'
 alias gco='git checkout'
 alias gca='git commit --all'
@@ -115,4 +115,4 @@ set -x TODOHISTORY ~/Dropbox/todo/.todo-history
 alias t=todo
 alias d=todone
 alias tc=todos_completed
-alias te="vim -p $TODOFILE $TODOHISTORY ~/.todo-stashed"
+alias te="vim $TODOFILE $TODOHISTORY ~/.todo-stashed"

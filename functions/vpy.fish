@@ -5,5 +5,5 @@ function vpy -d "Open all python files in the argument directory (default .) in 
         set dir .
     end
 
-    vim -p (find $dir -maxdepth 1 -iname '*.py' ! -name '__init__.py')
+    vim (find $dir -maxdepth 1 -iname '*.py' ! -name '__init__.py')
 end
