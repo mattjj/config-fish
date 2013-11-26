@@ -1,33 +1,18 @@
 set fish_greeting ""
 
-###########
-#  paths  #
-###########
+#######################
+#  paths and aliases  #
+#######################
 
 if begin; status --is-login; and test -z $TMUX; end
     set -x EDITOR vim
     set -x VISUAL vim
 
-    set -x PATH "$HOME"/bin/{,todo/} $PATH
-
     set -x CDPATH . "$HOME" $CDPATH
+end
 
-    if test -e ~/builds/julia;
-        set -x PATH ~/builds/julia $PATH
-    end
-
-    if test (uname) = Darwin
-        set -x PATH /opt/local/{libexec/gnubin,bin,sbin}/ \
-            /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin/ \
-            $PATH
-        set -x PYTHONPATH ~/Library/Python
-        set -x MANPATH /opt/local/share/man /opt/local/man/ \
-            /usr/local/share/man /usr/share/man /opt/X11/share/man $MANPATH
-
-        set -x GOROOT /opt/local/go
-        set -x GOPATH ~/bin/gocode/bin
-        set -x PATH $PATH $GOPATH
-    end
+if test -e ~/.config/fish/config_thismachine.fish
+    source ~/.config/fish/config_thismachine.fish
 end
 
 ##################
@@ -51,7 +36,6 @@ alias v='vim'
 alias vv='vim -u NONE'
 alias pl='ipython --pylab'
 alias cloc='cloc --exclude-dir=.git'
-alias scheme='rlwrap -r -c -b" " -f "$HOME"/.scheme_completion.txt scheme'
 alias pcat='pygmentize -f terminal256 -O style=native -g'
 alias gfm='github-flavored-markdown.rb'
 alias less='less -R'
@@ -106,13 +90,3 @@ end
 
 set -x GREP_COLOR '37;45'
 
-################
-#  todo setup  #
-################
-
-set -x TODOFILE ~/Dropbox/todo/.todo
-set -x TODOHISTORY ~/Dropbox/todo/.todo-history
-alias t=todo
-alias d=todone
-alias tc=todos_completed
-alias te="vim $TODOFILE $TODOHISTORY ~/.todo-stashed"
