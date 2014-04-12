@@ -26,6 +26,7 @@ function fish_user_key_bindings
     bind \e\[1\;9D 'backward-word'
     bind \cn 'forward-word'
     bind \cb 'backward-word'
+    bind \ev 'edit_cmd'
 end
 
 #############
