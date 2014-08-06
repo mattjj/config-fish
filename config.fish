@@ -27,7 +27,10 @@ function fish_user_key_bindings
     bind \cn 'forward-word'
     bind \cb 'backward-word'
     bind \ev 'edit_cmd'
+    fzf_key_bindings
 end
+
+set -x FZF_DEFAULT_COMMAND 'ag -l -g ""'
 
 #############
 #  aliases  #
@@ -82,11 +85,9 @@ function j
     cd (command autojump $argv)
 end
 
-if not set -q LS_COLORS
-    if type -f dircolors >/dev/null
-        # eval (dircolors -c ~/.dir_colors.light)
-        eval (dircolors -c ~/.dir_colors.dark)
-    end
+if type -f dircolors >/dev/null
+    # eval (dircolors -c ~/.dir_colors.light)
+    eval (dircolors -c ~/.dir_colors.dark)
 end
 
 set -x GREP_COLOR '37;45'
