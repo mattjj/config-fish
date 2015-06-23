@@ -4,13 +4,6 @@ set fish_greeting ""
 #  paths and aliases  #
 #######################
 
-if begin; status --is-login; and test -z $TMUX; end
-    set -x EDITOR vim
-    set -x VISUAL vim
-
-    set -x CDPATH . "$HOME" $CDPATH
-end
-
 if test -e ~/.config/fish/config_thismachine.fish
     source ~/.config/fish/config_thismachine.fish
 end
@@ -31,29 +24,6 @@ function fish_user_key_bindings
 end
 
 set -x FZF_DEFAULT_COMMAND 'ag -l -g ""'
-
-#############
-#  aliases  #
-#############
-
-alias v='vim'
-alias vv='vim -u NONE'
-alias pl='ipython --pylab'
-alias cloc='cloc --exclude-dir=.git'
-alias pcat='pygmentize -f terminal256 -O style=native -g'
-alias gfm='github-flavored-markdown.rb'
-alias less='less -R'
-alias gb='git branch'
-alias gco='git checkout'
-alias gca='git commit --all'
-alias gcb='git checkout -b'
-alias ta='tmux a -t'
-
-make_completion gb 'git branch'
-make_completion gco 'git checkout'
-make_completion gca 'git commit --all'
-make_completion pcat 'cat'
-make_completion ta 'tmux a -t'
 
 #######################
 #  coloring manpages  #
@@ -80,10 +50,6 @@ set __fish_git_prompt_char_stagedstate '→'
 set __fish_git_prompt_char_stashstate '↩'
 set __fish_git_prompt_char_upstream_ahead '↑'
 set __fish_git_prompt_char_upstream_behind '↓'
-
-function j
-    cd (command autojump $argv)
-end
 
 if type -f dircolors >/dev/null
     # eval (dircolors -c ~/.dir_colors.light)
